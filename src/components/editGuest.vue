@@ -81,7 +81,7 @@
       async getGuest(){
         this.id = this.$route.params.id ;
         
-        const response = await axios.get('http://localhost:3001/api/guests/' + this.id);
+        const response = await axios.get('http://ehealth-guest-app-server.herokuapp.com/api/guests/' + this.id);
         this.name = response.data.name;
         this.email = response.data.email;
         this.address = response.data.address;

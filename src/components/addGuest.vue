@@ -83,7 +83,7 @@
           comment: this.comment
         }
 
-        let response = await axios.post('http://localhost:3001/api/guests/add', newGuest);
+        let response = await axios.post('http://ehealth-guest-app-server.herokuapp.com/api/guests/add', newGuest);
 
         this.message = response.data.message
         this.dataSent = true;
