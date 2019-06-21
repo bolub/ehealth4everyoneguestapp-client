@@ -18,22 +18,12 @@
         <strong>Comment</strong> : {{ comment }}
       </li>
 
-      <li>
-        <strong>Message</strong> : {{ message }}
-      </li>
-
     </ul>
 
   </div>
 </template>
 
-// style
-<style>
-  
-</style>
 
-
-//script
 <script>
   import axios from 'axios';
 
@@ -59,7 +49,7 @@
       async getGuest(){
         this.id = this.$route.params.id ;
         
-        const response = await axios.get('http://ehealth-guest-app-server.herokuapp.com/api/guests' + this.id);
+        const response = await axios.get('http://ehealth-guest-app-server.herokuapp.com/api/guests/' + this.id);
         this.name = response.data.name;
         this.email = response.data.email;
         this.address = response.data.address;

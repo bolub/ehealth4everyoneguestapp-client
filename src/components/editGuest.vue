@@ -30,7 +30,7 @@
       <textarea v-model="comment" class="form-control" rows="4"></textarea>
     </div>
 
-    <button v-on:click="" type="submit" class="btn btn-custom mt-3">Submit</button>
+    <button type="submit" class="btn btn-custom mt-3">Submit</button>
   </form>
 
   </div>
@@ -96,7 +96,7 @@
           comment: this.comment
         }
 
-        let response = await axios.put('http://localhost:3001/api/guests/' + this.id, editedGuest);
+        let response = await axios.put('http://ehealth-guest-app-server.herokuapp.com/api/guests/' + this.id, editedGuest);
 
         this.message = response.data.message
         this.dataSent = true;
