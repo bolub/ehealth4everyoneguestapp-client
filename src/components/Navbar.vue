@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
       <a class="navbar-brand" href="#">
         <img alt="logo" src="./../assets/ehealth.png" class="imgSize img-fluid">
       </a>
@@ -33,6 +33,11 @@
 
     .imgSize{
       width: 200px;
+    }
+
+    .navbar-toggler-icon{
+      width: 1rem;
+      height: 1.3rem;
     }
 </style>
 

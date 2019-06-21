@@ -8,13 +8,11 @@
 
 <script>
   import Navbar from './components/Navbar.vue';
-  import landing from './components/landing.vue';
 
   export default {
     name: 'app',
     components: {
-      Navbar,
-      landing
+      Navbar
     }
   }
 </script>

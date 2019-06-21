@@ -5,8 +5,10 @@ const cors              = require('cors');
 const path              = require('path');
 const guestRoutes       = require('./routes/guest');
 const mongoose          = require('mongoose');
+const bodyParser        = require('body-parser'); 
 
 app.use(cors());
+app.use(bodyParser.json());
 
 //mongoose
 const db =  "mongodb://Bolub:Bioluwasefe1#@ds341247.mlab.com:41247/ehealth4everyonecustomerapp";

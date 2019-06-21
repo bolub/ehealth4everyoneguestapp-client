@@ -1,7 +1,7 @@
 <template>
-  <div class="landing my-5">
+  <div class="landing container my-5">
 
-  <div v-if="this.dataSent === true " class="alert alert-warning alert-dismissible fade show" role="alert">
+  <div v-if="this.dataSent === true " class="alert alert-success alert-dismissible fade show" role="alert">
     {{ message }}
 
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -56,8 +56,10 @@
 
 //script
 <script>
+  import axios from 'axios';
+
   export default {
-    name: 'landing',
+    name: 'addGuest',
 
     data(){
       return{
@@ -72,7 +74,7 @@
 
 
     methods:{
-      addNewGuest:  function(){
+      addNewGuest: async function(){
 
         let newGuest = {
           name: this.name,
@@ -81,23 +83,10 @@
           comment: this.comment
         }
 
-        let postData = { 
-            method: 'POST', 
-            body: JSON.stringify(newGuest)
-        }
+        let response = await axios.post('http://localhost:3001/api/guests/add', newGuest);
 
-        fetch('http://localhost:3001/api/guests/add', postData)
-        .then((resp) => resp.json()) // Transform the data into json
-        .then(function(data) {
-          console.log(data);
-          })
-        
-
-        // console.log(newGuest.name)
-
-        // let data = response.data.message;
-        // this.message = data;
-        // this.dataSent = true;
+        this.message = response.data.message
+        this.dataSent = true;
       }
     }
   }

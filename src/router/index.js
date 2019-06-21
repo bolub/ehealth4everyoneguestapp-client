@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router'; 
-import Landing from './../components/landing.vue';
+import AddGuest from './../components/addGuest.vue';
+import editGuest from './../components/editGuest.vue';
 import GuestList from './../components/guestList.vue';
 
 Vue.use(Router);
@@ -15,8 +16,15 @@ export default new Router({
 
     {
       path: '/new-guest',
-      name: 'Landing',
-      component: Landing
+      name: 'AddGuest',
+      component: AddGuest
+    },
+
+    {
+      path: '/edit-guest/:id',
+      name: 'edit-guest',
+      component: editGuest,
+      props: true
     }
   ]
 })

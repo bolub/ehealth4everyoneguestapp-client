@@ -20,21 +20,21 @@ router.get('/api/guests', (req, res)=>{
 
 // create route
 router.post('/api/guests/add', (req, res)=>{
-    console.log(req); 
-    // const { name, email, address, comment } = req.body;
-    // const guest = { name, email, address, comment, created: new Date().toLocaleString() }
+    const { name, email, address, comment } = req.body;
+   
+    const guest = { name, email, address, comment, created: new Date().toLocaleString() }
 
-    // Guest.create(guest, (err, newGuest)=>{
-    //     if(err){
-    //         console.log(err);
-    //     }else{
-    //         res.json({ message: 'Guest added successfully' });
-    //     }
-    // });
+    Guest.create(guest, (err, newGuest)=>{
+        if(err){
+            console.log(err);
+        }else{
+            res.json({ message: 'Guest added successfully' });
+        }
+    });
 })
 
 //show route
-router.get('/guests/:id', (req, res)=>{
+router.get('/api/guests/:id', (req, res)=>{
     let id = req.params.id;
 
     Guest.findById(id, (err, foundGuest)=>{
@@ -47,7 +47,7 @@ router.get('/guests/:id', (req, res)=>{
 })
 
 //UPDATE ROUTE
-router.put("/guests/:id", (req, res)=>{
+router.put("/api/guests/:id", (req, res)=>{
     let id = req.params.id;
     const { name, email, address, comment } = req.body;
     const foundGuest = { name, email, address, comment, created: new Date().toLocaleString()};
@@ -56,15 +56,15 @@ router.put("/guests/:id", (req, res)=>{
     Guest.findByIdAndUpdate(id, foundGuest, (err, updatedGuest)=>{
         if(err) {
             console.log(err);
-            } else {
-                res.json({ message: 'Guest updated successfully' });
-            }
+        } else {
+            res.json({ message: 'Guest updated successfully' });
+        }
     });
  });
  
  //DELETE ROUTE
-router.delete("/guests/:id", (req, res)=>{
-    //destroy blog
+
+router.delete("/api/guests/:id", (req, res)=>{
     Guest.findByIdAndRemove(req.params.id, (err)=>{
         if (err) {
             console.log(err);
